@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import numpy as np
 import openpyxl
-import xlrd
+#import xlrd
 
 
 def procesar_ventas(path: str) -> pd.DataFrame:
