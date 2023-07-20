@@ -118,15 +118,16 @@ def iniciar_proceso():
         # Expandir todas las columnas
         for column in hoja.columns:
             max_length = 0
-            column = [cell for cell in column]
-            for cell in column:
+            column_values = [cell.value for cell in column]
+            for value in column_values:
                 try:
-                    if len(str(cell.value)) > max_length:
-                        max_length = len(cell.value)
+                    if len(str(value)) > max_length:
+                        max_length = len(str(value))
                 except:
                     pass
             adjusted_width = (max_length + 2) * 1.2
-            hoja.column_dimensions[column[0].column_letter].width = adjusted_width
+            column_letter = column[0].column_letter
+            hoja.column_dimensions[column_letter].width = adjusted_width
 
         # Formato de contabilidad para las celdas con números
         number_format = '#,##0.00'
